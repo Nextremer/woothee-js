@@ -2,10 +2,10 @@
   var root = this;
   // embed: dataset, util, browser, mobilephone, crawler, appliance, misc, woothee
 
-  // GENERATED from dataset.yaml at Mon Aug 22 20:49:52 JST 2016 by tagomoris
+  // GENERATED from dataset.yaml at Tue Nov  8 00:37:31 JST 2016 by tanikawa
 
   // Snapshot from package.json
-  var package_info = {"name":"woothee","version":"1.5.0","description":"User-Agent string parser (js implementation)","main":"./release/woothee","devDependencies":{"mocha":">= 1.7.0","chai":">= 1.3.0","js-yaml":">= 1.0.3","should":"~1.2.2"},"scripts":{"test":"make test"},"repository":{"type":"git","url":"https://github.com/woothee/woothee-js"},"author":"tagomoris","license":"Apache v2"};
+  var package_info = {"name":"woothee","version":"1.5.1","description":"User-Agent string parser (js implementation)","main":"./release/woothee","devDependencies":{"mocha":">= 1.7.0","chai":">= 1.3.0","js-yaml":">= 1.0.3","should":"~1.2.2"},"scripts":{"test":"make test"},"repository":{"type":"git","url":"https://github.com/woothee/woothee-js"},"author":"tagomoris","license":"Apache v2"};
 
   var dataset = {};
   (function(){
@@ -41,7 +41,7 @@
     ];
     var ATTRIBUTE_LIST = exports.ATTRIBUTE_LIST = [ATTRIBUTE_NAME, ATTRIBUTE_CATEGORY, ATTRIBUTE_OS, ATTRIBUTE_VENDOR, ATTRIBUTE_VERSION, ATTRIBUTE_OS_VERSION];
     var DATASET = {};
-    // GENERATED from dataset.yaml at Mon Aug 22 20:49:51 JST 2016 by tagomoris
+    // GENERATED from dataset.yaml at Tue Nov  8 00:37:31 JST 2016 by tanikawa
     var obj;
     obj = {label:'MSIE', name:'Internet Explorer', type:'browser'};
     obj['vendor'] = 'Microsoft';
@@ -664,7 +664,11 @@
       if (ua.indexOf('iPhone') >= 0) data = dataset.get('iPhone');
       else if (ua.indexOf('iPad') >= 0) data = dataset.get('iPad');
       else if (ua.indexOf('iPod') >= 0) data = dataset.get('iPod');
-      else if (ua.indexOf('Android') >= 0) data = dataset.get('Android');
+      else if (ua.indexOf('Android') >= 0) {
+        data = dataset.get('Android') 
+        if ((match = /Android[- ](\d+\.\d+(?:\.\d+)?)/.exec(ua)))
+          os_version = match[1];
+      }
       else if (ua.indexOf('CFNetwork') >= 0) data = dataset.get('iOS');
       else if (ua.indexOf('BB10') >= 0) {
         data = dataset.get('BlackBerry10');

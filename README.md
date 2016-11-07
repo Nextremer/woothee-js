@@ -58,6 +58,12 @@ woothee.is_crawler('Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4
 
 Try to see useragent's category is 'crawler' or not, by casual(fast) method. Minor case of crawlers is not tested in this method. To check crawler strictly, use `woothee.parse(str).category === 'crawler'`.
 
+## Build
+
+    $ make
+
+Then, `release/woothee.js` is created.
+
 * * * * *
 
 ## Authors
