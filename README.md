@@ -6,7 +6,7 @@ https://github.com/woothee/woothee
 
 ## Installation
 
-    $ npm install woothee
+    $ npm install Nextremer/woothee-js
 
 Or, download `release/woothee.js` and put it on your own directory for js files.
 
